@@ -1,0 +1,67 @@
+
+<div >
+  <div style="width: 1300px; margin-bottom: 50px; margin: auto; align-items: center;">
+
+
+      <div class="row">
+
+          <div class="col-3" >
+              <mat-select style="color: black  !important"  name="iddepartamento" id="iddepartamento" class="iddepartamento"[(ngModel)]="filtroempleados.iddepartamento" placeholder="Seleccione un Departamento" (selectionChange)="GetUsuariosFiltros()">
+                  <mat-option *ngFor="let item of departamento" [value]="item.id">
+                      {{item.descripcion}}
+                  </mat-option>
+              </mat-select>
+
+          </div>
+          <div class="col-3">
+          
+              <mat-select name="idcargo" id="idcargo" class="idcargo" [(ngModel)]="filtroempleados.idcargo" placeholder="Seleccione un perfil" style:placeholder="color:black" (selectionChange)="GetUsuariosFiltros()">
+                  <mat-option *ngFor="let item of cargos" [value]="item.id">
+                      {{item.descripcion}}
+                  </mat-option>
+              </mat-select>
+          </div>
+          <div class="col-6" style="display: flex; justify-content: flex-end; ">
+              <button mat-raised-button (click)="registrarEmpleados()" style="margin-right: 10px;">Crear Nuevo
+                  Usuario</button>
+          </div>
+      </div>
+    
+
+  </div>
+
+  <div class="row">
+     
+</div> 
+
+<table class="table table-hover">
+    <thead>
+      <tr style="text-align: center;">
+        <th scope="col">Usuario</th>
+        <th scope="col">Nombres</th>
+        <th scope="col">Apellidos</th>
+        <th scope="col">Departamento</th>
+        <th scope="col">Cargo</th>
+        <th scope="col">Email</th>
+        <th scope="col">Acciones</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of empleados" style="text-align: center;">
+        <td>{{item.usuario}}</td>
+        <td>{{item.primernombre}} {{item.segundonombre}}</td>
+        <td>{{item.primerapellido}} {{item.segundoapellido}}</td>
+        <td>{{item.departamento}}</td>
+        <td>{{item.cargo}}</td>
+        <td>{{item.email}}</td>
+        <td>
+          <button class="btn"  style="margin: 0 5px; color: rgb(91, 248, 91);"(click)="actualizarEmpleados(item)"><mat-icon>edit_square</mat-icon>Editar</button>
+          
+          <button  class="btn" style="margin: 0 5px;color:rgb(255, 65, 65)" (click)="openConfirmationDialog(item)"><mat-icon>delete</mat-icon>Eliminar</button>
+        </td>
+       
+      </tr>
+      
+    </tbody>
+  </table>

@@ -1,0 +1,70 @@
+<div class="content d-flex justify-content-center" style="box-sizing: border-box;">
+  <div class="row justify-content-center">
+    <div class="col text-center">
+      <h1>Usuario</h1>
+
+      <form>
+        <div class="row" style="margin-bottom: 10px;">
+          <div class="col">
+            <label for="form-control">Departamento:</label>
+            <mat-select name="iddepartamento" id="iddepartamento"[(ngModel)]="empleados.iddepartamento">
+              <mat-option *ngFor="let item of departamento" [value]="item.id">
+                  {{item.descripcion}}
+              </mat-option>
+          </mat-select>
+          </div>
+          <div class="col">
+            <label for="form-control">Cargo:</label>
+            <mat-select name="idcargo" id="idcargo" [(ngModel)]="empleados.idcargo">
+              <mat-option *ngFor="let item of cargos" [value]="item.id">
+                  {{item.descripcion}}
+              </mat-option>
+          </mat-select>
+          </div>
+        </div>
+        <div class="row" style="margin-bottom: 10px;">
+          <div class="col">
+            <label for="form-control">Usuario:</label>
+            <input type="text" class="form-control" name="usuario" [(ngModel)]="empleados.usuario">
+          </div>
+          <div class="col">
+            <label for="form-control">Email:</label>
+            <input type="email" class="form-control" name="email" [(ngModel)]="empleados.email">
+          </div>
+        </div>
+        <div class="row" style="margin-bottom: 10px;">
+          <div class="col">
+            <label for="form-control">Primer nombre:</label>
+            <input type="text" class="form-control" name="primernombre"(keypress)="onKeyPressTexto($event)"  [(ngModel)]="empleados.primernombre">
+          </div>
+          <div class="col">
+            <label for="form-control">Segundo nombre:</label>
+            <input type="text" class="form-control" name="segundonombre" (keypress)="onKeyPressTexto($event)"[(ngModel)]="empleados.segundonombre">
+          </div>
+        </div>
+        <div class="row" style="margin-bottom: 10px;">
+          <div class="col">
+            <label for="form-control">Primer apellido:</label>
+            <input type="text" class="form-control" name="primerapellido" (keypress)="onKeyPressTexto($event)"[(ngModel)]="empleados.primerapellido">
+          </div>
+          <div class="col">
+            <label for="form-control">Segundo apellido:</label>
+            <input type="text" class="form-control" name="segundoapellido" (keypress)="onKeyPressTexto($event)"[(ngModel)]="empleados.segundoapellido">
+          </div>
+        </div>
+
+      </form>
+
+
+
+
+
+
+
+      <div>
+        <button class="btn btn-secondary" style="margin: 5px;" (click)="setPersonas()">{{titulo}}</button>
+        <button class="btn btn-primary" style="margin: 5px;" (click)="dismissModal()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
